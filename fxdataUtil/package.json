@@ -7,7 +7,8 @@
     "start": "ts-node src/main.ts",
     "dev": "nodemon --watch 'src/**/*.ts' --exec ts-node src/main.ts",
     "build": "tsc",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "test1": "jest -t 'importByRoot'"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,8 @@
   },
   "dependencies": {
     "@types/mssql": "^6.0.7",
-    "mssql": "^6.3.1"
+    "@types/ramda": "^0.27.34",
+    "mssql": "^6.3.1",
+    "ramda": "^0.27.1"
   }
 }
