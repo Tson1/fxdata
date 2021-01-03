@@ -1,0 +1,109 @@
+﻿# A5:ER FORMAT:14
+# A5:ER ENCODING:UTF8
+# A5:ER Mk-1 Copyright (C)2007 m.matsubara
+# A5:SQL Mk-2 Copyright (C)1997 m.matsubara
+#  https://a5m2.mmatsubara.com
+
+[Manager]
+ProjectName=FXdata
+Author=tson1
+MaxEntityRowShow=1000
+ReadOnlyRecommend=0
+Page=Main
+PageInfo="Main",2,"A3Landscape",$FFFFFF
+LogicalView=1
+DecodeDomain=0
+ViewModePageIndividually=1
+ViewMode=2
+ViewFormat=0
+UseNondependenceDashLine=0
+FontName=Tahoma
+FontSize=9
+PaperSize=A4Landscape
+HeaderLeft=
+HeaderCenter=
+HeaderRight=
+FooterLeft=
+FooterCenter=
+FooterRight=
+ShowPageoutRelation=1
+RDBMSType=4
+RDBMSTypeName=Microsoft SQL Server 2008
+GenerateDropTableStatement=1
+DropTableIfExists=0
+CreateFk=1
+FkOnDeleteOption=on delete cascade
+FKParentIndex=1
+CommonField="crtDt","crtDt","@DATETIME","NOT NULL",,"GETDATE()","",$FFFFFFFF
+CommonField="upDt","upDt","@DATETIME","NOT NULL",,"GETDATE()","",$FFFFFFFF
+CommonField="crtUser","crtUser","VARCHAR(35)","NOT NULL",,"\q\q","",$FFFFFFFF
+DefaultPkName=%0:s_PKC
+DefaultPkIndexName=%0:s_PKI
+DefaultIndexName=%0:s_IX%1:d
+DefaultFkName=%0:s_FK%1:d
+SqlSeparator=0
+UpperCaseKeyword=0
+ShowTag=1
+ShowCommonAttributes=0
+
+[Entity]
+PName=fxdata
+LName=fxdata
+Comment=
+TableOption=
+Page=Main
+Left=400
+Top=100
+Field="ID","id","BIGINT","NOT NULL",0,"","",$FFFFFFFF,"IDENTITY(1,1)"
+Field="通貨区分","pairKb","VARCHAR(6)","NOT NULL",,"\q\q","",$FFFFFFFF,""
+Field="発生時間","tmstamp","VARCHAR(15)","NOT NULL",,"\q\q","",$FFFFFFFF,""
+Field="開始BID","openBid","MONEY","NOT NULL",,"\q0\q","",$FFFFFFFF,""
+Field="高BID","hightBid","MONEY","NOT NULL",,"\q0\q","",$FFFFFFFF,""
+Field="低BID","lowBid","MONEY","NOT NULL",,"\q0\q","",$FFFFFFFF,""
+Field="終了BID","closeBid","MONEY","NOT NULL",,"\q0\q","",$FFFFFFFF,""
+Index=ux_fxdata_pair_time=1,pairKb ,tmstamp 
+Index=ix_fxdata_time=0,tmstamp 
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20210102215228
+Position="Main",400,100
+ZOrder=1
+
+[Entity]
+PName=fxPair
+LName=通貨区分
+Comment=
+TableOption=
+Page=Main
+Left=950
+Top=200
+Field="通貨区分","pair","VARCHAR(6)","NOT NULL",0,"\q\q","eurusd",$FFFFFFFF,""
+Field="通貨名称","pname","NVARCHAR(225)","NOT NULL",,"\q\q","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20210102214740
+Position="Main",950,200,231,165
+ZOrder=2
+
+[Relation]
+Entity1=fxPair
+Entity2=fxdata
+RelationType1=2
+RelationType2=3
+Fields1=pair
+Fields2=pairKb
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,835,9165,1011,R,R,""
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=84
+Bar2=916
+Bar3=101
+TermPos1=R
+TermPos2=R
+ZOrder=3
