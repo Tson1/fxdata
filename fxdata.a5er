@@ -54,31 +54,20 @@ TableOption=
 Page=MAIN
 Left=400
 Top=100
-Field="ID","id","BIGINT","NOT NULL",0,"","",$FFFFFFFF,"IDENTITY(1,1)"
+Field="ID","fxid","BIGINT","NOT NULL",0,"","",$FFFFFFFF,"IDENTITY(1,1)"
 Field="通貨区分","pairKb","VARCHAR(6)","NOT NULL",,"\q\q","",$FFFFFFFF,""
-Field="発生時間","tmstamp","VARCHAR(15)","NOT NULL",,"\q\q","",$FFFFFFFF,""
+Field="発生時刻","tmstamp","VARCHAR(15)","NOT NULL",,"\q\q","",$FFFFFFFF,""
 Field="開始BID","openBid","MONEY","NOT NULL",,"\q0\q","",$FFFFFFFF,""
 Field="高BID","hightBid","MONEY","NOT NULL",,"\q0\q","",$FFFFFFFF,""
 Field="低BID","lowBid","MONEY","NOT NULL",,"\q0\q","",$FFFFFFFF,""
 Field="終了BID","closeBid","MONEY","NOT NULL",,"\q0\q","",$FFFFFFFF,""
-Field="年","y","CHAR(4)","NOT NULL",,"\q\q","",$FFFFFFFF,""
-Field="月","mt","CHAR(2)","NOT NULL",,"\q\q","",$FFFFFFFF,""
-Field="日","d","CHAR(2)","NOT NULL",,"\q\q","",$FFFFFFFF,""
-Field="時","h","CHAR(2)","NOT NULL",,"\q\q","",$FFFFFFFF,""
-Field="分","m","CHAR(2)","NOT NULL",,"\q\q","",$FFFFFFFF,""
-Field="秒","s","CHAR(2)","NOT NULL",,"\q\q","",$FFFFFFFF,""
 Index=ux_fxdata_pair_time=1,pairKb,tmstamp
 Index=ix_fxdata_time=0,tmstamp
-Index=ix_fxdata_mt=0,mt
-Index=ix_fxdata_d=0,d
-Index=ix_fxdata_h=0,h
-Index=ix_fxdata_m=0,m
-Index=ix_fxdata_s=0,s
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20210103210336
-Position="MAIN",400,100
+ModifiedDateTime=20210104191054
+Position="MAIN",400,100,258,307
 ZOrder=1
 
 [Entity]
@@ -118,3 +107,46 @@ Bar3=101
 TermPos1=R
 TermPos2=R
 ZOrder=3
+
+[Entity]
+PName=timeScAll
+LName=タイムスケールALL
+Comment=
+TableOption=
+Page=Main
+Left=950
+Top=500
+Field="発生時刻","tmstamp","VARCHAR(15)","NOT NULL",0,"\q\q","",$FFFFFFFF,""
+Field="年","y","CHAR(4)","NOT NULL",,"\q\q","",$FFFFFFFF,""
+Field="月","mt","CHAR(2)","NOT NULL",,"\q\q","",$FFFFFFFF,""
+Field="日","d","CHAR(2)","NOT NULL",,"\q\q","",$FFFFFFFF,""
+Field="時","h","CHAR(2)","NOT NULL",,"\q\q","",$FFFFFFFF,""
+Field="分","m","CHAR(2)","NOT NULL",,"\q\q","",$FFFFFFFF,""
+Field="秒","s","CHAR(2)","NOT NULL",,"\q\q","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20210104184406
+Position="Main",950,500
+ZOrder=5
+
+[Relation]
+Entity1=timeScAll
+Entity2=fxdata
+RelationType1=2
+RelationType2=3
+Fields1=tmstamp
+Fields2=tmstamp
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,1474,8526,2266,R,R,""
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=147
+Bar2=853
+Bar3=227
+TermPos1=R
+TermPos2=R
+ZOrder=9
